@@ -4,49 +4,47 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+	<script src="/libs/jquery/dist/jquery.min.js"></script>
+	<script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/libs/angular/angular.min.js"></script>
 	<script src="/index.js"></script>
 </head>
 <body ng-controller="RegCtrl as regCtrl">
  <h1>Registration</h1>  
- <form name="regForm" novalidate ng-submit="regCtrl.processForm()">
- 	<table>
-		<tr>
-			<td>Name:</td>
-			<td>
-				<input id="name" name="name" type="text" required 
-					ng-model="regCtrl.name" 
-					ng-class="regCtrl.isValid(regForm,'name')">
-			</td>
-		</tr>
-		<tr>
-			<td>Email:</td>
-			<td>
-				<input id="email" name="email" type="email" required 
-					ng-model="regCtrl.email" 
-					ng-class="regCtrl.isValid(regForm,'email')"
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<button type="button" ng-click="regCtrl.resetForm()">Clear</button>
-			</td>
-			<td>
-				<button type="submit" ng-disabled="regForm.$invalid">Process</button>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				{{regCtrl.message}}
-			</td>
-		</tr>
-		<tr>
-			<td>
-				{{ regForm.name.$dirty }}
-				{{ regForm.name.$invalid }}
-			</td>
-		</tr>
- 	</table>
- </form>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+
+				<form name="regForm" novalidate ng-submit="regCtrl.processForm()">
+
+					<div class="form-group">
+						<label for="name">Name:</label>
+						<input class="form-control" type="text" name="name" id="name"
+							ng-model="regCtrl.name"
+							ng-class="regCtrl.isValid(regForm,'name')">
+					</div>
+
+					<div class="form-group">
+						<label for="name">Email:</label>
+						<input class="form-control" type="email" name="email" id="email"
+							ng-model="regCtrl.email"
+							ng-class="regCtrl.isValid(regForm,'email')">
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-primary" type="button" ng-click="regCtrl.resetForm()">Clear</button>
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-primary" type="submit" ng-disabled="regForm.$invalid">Process</button>
+					</div>
+					<div class="form-group">
+						{{regCtrl.message}}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
