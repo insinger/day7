@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
-	<link rel="stylesheet" href="index.css">
 	<link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
 	<script src="/libs/jquery/dist/jquery.min.js"></script>
 	<script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/libs/angular/angular.min.js"></script>
+	<link rel="stylesheet" href="index.css">
 	<script src="/index.js"></script>
 </head>
 <body ng-controller="RegCtrl as regCtrl">
@@ -18,18 +18,22 @@
 
 				<form name="regForm" novalidate ng-submit="regCtrl.processForm()">
 
-					<div class="form-group">
+					<div class="form-group" ng-class="regCtrl.isValid(regForm,'name').classval">
 						<label for="name">Name:</label>
-						<input class="form-control" type="text" name="name" id="name"
-							ng-model="regCtrl.name"
-							ng-class="regCtrl.isValid(regForm,'name')">
+						<input class="form-control" type="text" name="name" id="name" required
+							ng-model="regCtrl.name">
+						<span class="help-block" ng-if="regCtrl.isValid(regForm,'name').ifval">
+							Please enter your name
+						</span>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" ng-class="regCtrl.isValid(regForm,'email').classval">
 						<label for="name">Email:</label>
-						<input class="form-control" type="email" name="email" id="email"
-							ng-model="regCtrl.email"
-							ng-class="regCtrl.isValid(regForm,'email')">
+						<input class="form-control" type="email" name="email" id="email" required
+							ng-model="regCtrl.email">
+						<span class="help-block" ng-if="regCtrl.isValid(regForm,'email').ifval">
+							Please enter a valid email address
+						</span>
 					</div>
 
 					<div class="form-group">
@@ -41,6 +45,7 @@
 					</div>
 					<div class="form-group">
 						{{regCtrl.message}}
+						{{regForm.name.$pristine}}
 					</div>
 				</form>
 			</div>

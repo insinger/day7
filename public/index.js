@@ -7,9 +7,9 @@
 		regCtrl.message="";
 
 		regCtrl.isValid=function(form,field) {
-			if (!form[field].$dirty) {return("initial");}
-			else if (form[field].$dirty && !form[field].$valid) {return "error";}
-			else {return "correct";}
+			if (form[field].$pristine) return({classval:"",ifval:false});
+			if (form[field].$invalid && form[field].$dirty) {return {classval:"has-error",ifval:true};}
+			else {return {classval:"has-success",ifval:false};}
 			}
 		regCtrl.resetForm=function() {
 			regCtrl.name="";
