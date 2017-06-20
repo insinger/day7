@@ -8,7 +8,12 @@
 
 		regCtrl.isValid=function(form,field) {
 			console.log("field="+field,"content="+form[field],"$valid="+form[field].$valid);
-			return (form[field].$valid);
+			if (form[field].$valid) {
+				return "correct";
+				}
+			else {
+				return "error";
+				}
 			}
 		regCtrl.resetForm=function() {
 			regCtrl.name="";

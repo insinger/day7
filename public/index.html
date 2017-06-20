@@ -24,7 +24,7 @@
 			<td>
 				<input id="email" name="email" type="email" required 
 					ng-model="regCtrl.email" 
-					ng-class="{error: !regCtrl.isValid(regForm,'email')}"
+					ng-class="regCtrl.isValid(regForm,'email')"
 			</td>
 		</tr>
 		<tr>
