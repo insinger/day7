@@ -16,7 +16,7 @@
 			<td>
 				<input id="name" name="name" type="text" required 
 					ng-model="regCtrl.name" 
-					ng-class="{error: regForm.name.$invalid, correct: !regForm.name.$invalid}">
+					ng-class="regCtrl.isValid(regForm,'name')">
 			</td>
 		</tr>
 		<tr>

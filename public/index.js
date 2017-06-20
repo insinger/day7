@@ -7,13 +7,9 @@
 		regCtrl.message="";
 
 		regCtrl.isValid=function(form,field) {
-			console.log("field="+field,"content="+form[field],"$valid="+form[field].$valid);
-			if (form[field].$valid) {
-				return "correct";
-				}
-			else {
-				return "error";
-				}
+			if (!form[field].$dirty) {return("initial");}
+			else if (form[field].$dirty && !form[field].$valid) {return "error";}
+			else {return "correct";}
 			}
 		regCtrl.resetForm=function() {
 			regCtrl.name="";
