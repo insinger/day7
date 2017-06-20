@@ -6,6 +6,10 @@
 		regCtrl.email="";
 		regCtrl.message="";
 
+		regCtrl.isValid=function(form,field) {
+			console.log("field="+field,"content="+form[field],"$valid="+form[field].$valid);
+			return (form[field].$valid);
+			}
 		regCtrl.resetForm=function() {
 			regCtrl.name="";
 			regCtrl.email="";
