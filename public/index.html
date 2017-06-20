@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="RegApp">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="/libs/angular/angular.min.js"></script>
+	<script src="/index.js"></script>
+</head>
+<body ng-controller="RegCtrl as regCtrl">
+ <h1>Registration</h1>  
+ <form name="regForm" novalidate ng-submit="regCtrl.processForm()">
+ 	<table>
+		<tr>
+			<td>Name:</td>
+			<td>
+				<input id="name" name="name" type="text" ng-model="regCtrl.name">
+			</td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td>
+				<input id="email" name="email" type="email" ng-model="regCtrl.email">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button type="button" ng-click="regCtrl.resetForm()">Clear</button>
+			</td>
+			<td>
+				<button type="submit">Process</button>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				{{regCtrl.message}}
+			</td>
+		</tr>
+ 	</table>
+ </form>
+</body>
+</html>
